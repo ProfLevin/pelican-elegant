@@ -51,7 +51,14 @@
         {% endif %}
         <div class="{{css_class}}">
             <header>
-            <h1 id="about-me">About me</h1>
+            {%if LANDING_PAGE_ABOUT and LANDING_PAGE_ABOUT.image %}
+            <img src="{{ LANDING_PAGE_ABOUT.image }}">
+            {% endif %}
+            {% if LANDING_PAGE_ABOUT and LANDING_PAGE_ABOUT.about_title %}
+            <h1 id="about-me">{{LANDING_PAGE_ABOUT.about_title }}</h1>
+            {% else %}
+            <h1 id="about-me">About Me</h1>
+            {% endif %}
             </header>
             <div class="article-content">
                 {{ LANDING_PAGE_ABOUT.details }}
